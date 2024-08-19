@@ -1,0 +1,14 @@
+body {
+  background-color: #001a00; /* Very dark green background */
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Friendly, warm font */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+h1 {
+  font-size: 4rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
