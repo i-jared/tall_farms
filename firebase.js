@@ -1,13 +1,9 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13/firebase-app.js";
+import { initializeApp } from "firebase/app";
 import {
   getAnalytics,
   setAnalyticsCollectionEnabled,
-} from "https://www.gstatic.com/firebasejs/10.13/firebase-analytics.js";
-import {
-  getFirestore,
-  collection,
-  addDoc,
-} from "https://www.gstatic.com/firebasejs/10.13/firebase-firestore.js";
+} from "firebase/analytics";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAGaa_-Dt7MBjD1a7Yn-xrd-faxlpL1ZBY",
@@ -20,22 +16,22 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+
 const analytics = getAnalytics(app);
+setAnalyticsCollectionEnabled(analytics, true);
+
 const firestore = getFirestore(app);
 
 setAnalyticsCollectionEnabled(analytics, true);
 
-export function sendMessage(data) {
+export async function sendMessage(data) {
   data.timestamp = new Date().toISOString();
 
-  addDoc(collection(firestore, "messages"), data)
-    .then((_) => {
-      alert("Message sent successfully!");
-      this.reset();
-    })
-    .catch((error) => {
-      console.error("Error adding document: ", error);
-      alert("An error occurred. Please try again.");
-    });
+  try {
+    await addDoc(collection(firestore, "messages"), data);
+    alert("Message sent successfully!");
+  } catch (error) {
+    console.error("Error adding document: ", error);
+    alert("An error occurred. Please try again.");
+  }
 }
-

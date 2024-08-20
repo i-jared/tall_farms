@@ -6,4 +6,5 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
   const formData = new FormData(this);
   const data = Object.fromEntries(formData);
   sendMessage(data);
+  this.reset();
 });
