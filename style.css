@@ -66,7 +66,7 @@
 #palm1 {
   position: absolute;
   left: calc(50% - 280px);
-  top: 420px;
+  top: 425px;
   transform: translate(-50%, -50%);
   z-index: -1;
 
