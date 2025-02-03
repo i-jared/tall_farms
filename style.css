@@ -70,34 +70,26 @@
   resize: vertical; /* Allows user to resize vertically */
 }
 
-#palm1 {
-  position: absolute;
-  left: calc(50% - 280px);
-  top: 425px;
-  transform: translate(-50%, -50%);
-  z-index: -1;
+#palm1, #palm2 {
+  width: 150px;
+  height: auto;
+  image-rendering: pixelated;  /* For Chrome/Edge/Safari */
+  image-rendering: crisp-edges;  /* For Firefox */
+  -ms-interpolation-mode: nearest-neighbor;  /* For IE (if needed) */
+  position: absolute;  /* Changed from fixed */
+}
 
-  image-rendering: pixelated;
-  image-rendering: -moz-crisp-edges;
-  image-rendering: crisp-edges;
-  width: 64px;
-  height: 64px;
+#palm1 {
+  left: 30%;
+  top: 200px;  /* Absolute position from top instead of 50% */
+  transform: translateX(-50%);  /* Only transform X axis */
 }
 
 #palm2 {
-  position: absolute;
-  left: calc(50% + 280px);
-  top: 220px;
-  transform: translate(-50%, -50%);
-  z-index: -1;
-
-  image-rendering: pixelated;
-  image-rendering: -moz-crisp-edges;
-  image-rendering: crisp-edges;
-  width: 64px;
-  height: 64px;
+  right: 30%;
+  top: 400px;  /* Absolute position from top instead of 30% */
+  transform: translateX(50%);  /* Only transform X axis */
 }
-
 
 #logo {
   position: absolute;
