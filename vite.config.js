@@ -15,8 +15,7 @@ export default defineConfig({
     // Warm up frequently used files for better performance
     warmup: {
       clientFiles: [
-        './src/grow.js',
-        './src/messages.js'
+        './src/*.js',
       ],
     }
   }
