@@ -18,23 +18,23 @@ function animatePalms() {
     const palm1 = document.getElementById('palm1');
     const palm2 = document.getElementById('palm2');
     
-    // Array of image states
+    // Updated paths to be relative to domain root
     const states = [
         {
-            left: '/palm-left/palm-left1.png',
-            right: '/palm-right/palm-right1.png'
+            left: 'palm-left/palm-left1.png',
+            right: 'palm-right/palm-right1.png'
         },
         {
-            left: '/palm-left/palm-left2.png',
-            right: '/palm-right/palm-right2.png'
+            left: 'palm-left/palm-left2.png',
+            right: 'palm-right/palm-right2.png'
         },
         {
-            left: '/palm-left/palm-left3.png',
-            right: '/palm-right/palm-right3.png'
+            left: 'palm-left/palm-left3.png',
+            right: 'palm-right/palm-right3.png'
         },
         {
-            left: '/palm-left/palm-left4.png',
-            right: '/palm-right/palm-right4.png'
+            left: 'palm-left/palm-left4.png',
+            right: 'palm-right/palm-right4.png'
         }
     ];
 
@@ -43,5 +43,11 @@ function animatePalms() {
     animatePalm(palm2, states, true);  // Right palm starts 500ms later
 }
 
-// Initialize animation when page loads
-window.addEventListener('load', animatePalms); 
+// Add error handling to help debug deployment issues
+window.addEventListener('load', () => {
+    try {
+        animatePalms();
+    } catch (error) {
+        console.error('Error initializing palm animations:', error);
+    }
+}); 
