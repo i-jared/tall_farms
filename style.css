@@ -74,22 +74,22 @@
 #palm1, #palm2 {
   width: 150px;
   height: auto;
-  image-rendering: pixelated;  /* For Chrome/Edge/Safari */
-  image-rendering: crisp-edges;  /* For Firefox */
-  -ms-interpolation-mode: nearest-neighbor;  /* For IE (if needed) */
-  position: absolute;  /* Changed from fixed */
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+  position: absolute;  /* Changed from fixed to scroll with page */
 }
 
 #palm1 {
-  left: 30%;
-  top: 200px;  /* Absolute position from top instead of 50% */
-  transform: translateX(-50%);  /* Only transform X axis */
+  left: calc(50% - 400px);
+  top: 200px;  /* Absolute pixel values instead of percentages */
+  transform: translateY(-50%);
 }
 
 #palm2 {
-  right: 30%;
-  top: 400px;  /* Absolute position from top instead of 30% */
-  transform: translateX(50%);  /* Only transform X axis */
+  right: calc(50% - 400px);
+  top: 600px;  /* Absolute pixel values instead of percentages */
+  transform: translateY(-50%);
 }
 
 #logo {
@@ -107,9 +107,9 @@
 }
 
 /* Adjust for mobile */
-@media (max-width: 768px) {
+@media (max-width: 1000px) {  /* Updated breakpoint for when palms would overlap content */
   #palm1, #palm2 {
-    display: none;  /* Hide palms on mobile */
+    display: none;  /* Hide palms when screen gets too narrow */
   }
 
   #one {
