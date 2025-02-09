@@ -3,7 +3,7 @@ import { resolve } from 'path'
 
 export default defineConfig({
   publicDir: 'public',
-  base: './',
+  base: '/',
   build: {
     rollupOptions: {
       input: {
@@ -16,7 +16,7 @@ export default defineConfig({
     warmup: {
       clientFiles: [
         './src/grow.js',
-        './messages.js'
+        './src/messages.js'
       ],
     }
   }
