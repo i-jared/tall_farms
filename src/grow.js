@@ -1,17 +1,26 @@
 function animatePlant(element, frames, delay) {
+    if (!element) {
+        console.error('Plant element not found');
+        return;
+    }
+    
     setTimeout(() => {
-        // Make the plant visible right before animation starts
-        element.style.opacity = '1';
-        
-        let currentFrame = 0;
-        const interval = setInterval(() => {
-            if (currentFrame < frames.length) {
-                element.src = frames[currentFrame];
-                currentFrame++;
-            } else {
-                clearInterval(interval);
-            }
-        }, 200);
+        try {
+            // Make the plant visible right before animation starts
+            element.style.opacity = '1';
+            
+            let currentFrame = 0;
+            const interval = setInterval(() => {
+                if (currentFrame < frames.length) {
+                    element.src = frames[currentFrame];
+                    currentFrame++;
+                } else {
+                    clearInterval(interval);
+                }
+            }, 200);
+        } catch (error) {
+            console.error('Error animating plant:', error);
+        }
     }, delay);
 }
 
@@ -38,6 +47,9 @@ function animatePlants() {
     const cabbage5 = document.getElementById('cabbage5');
     const tree1 = document.getElementById('tree1');
     const tree2 = document.getElementById('tree2');
+    const eggplant1 = document.getElementById('eggplant1');
+    const eggplant2 = document.getElementById('eggplant2');
+    const eggplant3 = document.getElementById('eggplant3');
     
     const palmLeftFrames = [
         'palm-left/palm-left1.png',
@@ -75,6 +87,13 @@ function animatePlants() {
         'tree1/tree5.png'
     ];
 
+    const eggplantFrames = [
+        'eggplant/egg1.png',
+        'eggplant/egg2.png',
+        'eggplant/egg3.png',
+        'eggplant/egg4.png'
+    ];
+
     // Animate palms first
     animatePlant(palm1, palmLeftFrames, 1000);
     animatePlant(palm2, palmRightFrames, 1500);
@@ -92,7 +111,10 @@ function animatePlants() {
         { element: cabbage4, frames: cabbageFrames },
         { element: cabbage5, frames: cabbageFrames },
         { element: tree1, frames: treeFrames },
-        { element: tree2, frames: treeFrames }
+        { element: tree2, frames: treeFrames },
+        { element: eggplant1, frames: eggplantFrames },
+        { element: eggplant2, frames: eggplantFrames },
+        { element: eggplant3, frames: eggplantFrames }
     ]);
 
     // Split into 4 groups
