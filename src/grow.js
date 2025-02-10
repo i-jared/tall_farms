@@ -19,6 +19,8 @@ function animatePlants() {
     const fern2 = document.getElementById('fern2');
     const cabbage1 = document.getElementById('cabbage1');
     const cabbage2 = document.getElementById('cabbage2');
+    const tree1 = document.getElementById('tree1');
+    const tree2 = document.getElementById('tree2');
     
     const palmLeftFrames = [
         'palm-left/palm-left1.png',
@@ -48,6 +50,14 @@ function animatePlants() {
         'cabbage0/cabbage4.png'
     ];
 
+    const treeFrames = [
+        'tree1/tree1.png',
+        'tree1/tree2.png',
+        'tree1/tree3.png',
+        'tree1/tree4.png',
+        'tree1/tree5.png'
+    ];
+
     // Animate palms first
     animatePlant(palm1, palmLeftFrames, 1000);
     animatePlant(palm2, palmRightFrames, 1500);
@@ -56,9 +66,13 @@ function animatePlants() {
     animatePlant(fern1, fernFrames, 2000);
     animatePlant(fern2, fernFrames, 2500);
 
-    // Animate cabbages last
+    // Animate cabbages next
     animatePlant(cabbage1, cabbageFrames, 3000);
     animatePlant(cabbage2, cabbageFrames, 3500);
+
+    // Animate trees last
+    animatePlant(tree1, treeFrames, 4000);
+    animatePlant(tree2, treeFrames, 4500);
 }
 
 // Add error handling to help debug deployment issues

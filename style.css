@@ -148,9 +148,30 @@
   transform: translateY(-50%);
 }
 
+#tree1, #tree2 {
+  width: 250px;
+  height: auto;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+  position: absolute;
+}
+
+#tree1 {
+  right: calc(50% - 500px);
+  top: 250px;
+  transform: translateY(-50%);
+}
+
+#tree2 {
+  left: calc(50% - 600px);
+  top: 700px;
+  transform: translateY(-50%);
+}
+
 /* Adjust for mobile */
 @media (max-width: 1000px) {  /* Updated breakpoint for when palms would overlap content */
-  #palm1, #palm2, #fern1, #fern2, #cabbage1, #cabbage2 {
+  #palm1, #palm2, #fern1, #fern2, #cabbage1, #cabbage2, #tree1, #tree2 {
     display: none;  /* Hide palms when screen gets too narrow */
   }
 
