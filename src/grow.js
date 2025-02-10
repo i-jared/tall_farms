@@ -17,24 +17,21 @@ function animatePlants() {
     const palm2 = document.getElementById('palm2');
     const fern1 = document.getElementById('fern1');
     const fern2 = document.getElementById('fern2');
+    const cabbage1 = document.getElementById('cabbage1');
+    const cabbage2 = document.getElementById('cabbage2');
     
-    const palmStates = [
-        {
-            left: 'palm-left/palm-left1.png',
-            right: 'palm-right/palm-right1.png'
-        },
-        {
-            left: 'palm-left/palm-left2.png',
-            right: 'palm-right/palm-right2.png'
-        },
-        {
-            left: 'palm-left/palm-left3.png',
-            right: 'palm-right/palm-right3.png'
-        },
-        {
-            left: 'palm-left/palm-left4.png',
-            right: 'palm-right/palm-right4.png'
-        }
+    const palmLeftFrames = [
+        'palm-left/palm-left1.png',
+        'palm-left/palm-left2.png',
+        'palm-left/palm-left3.png',
+        'palm-left/palm-left4.png'
+    ];
+
+    const palmRightFrames = [
+        'palm-right/palm-right1.png',
+        'palm-right/palm-right2.png',
+        'palm-right/palm-right3.png',
+        'palm-right/palm-right4.png'
     ];
 
     const fernFrames = [
@@ -44,13 +41,24 @@ function animatePlants() {
         'fern0/fern4.png'
     ];
 
+    const cabbageFrames = [
+        'cabbage0/cabbage1.png',
+        'cabbage0/cabbage2.png',
+        'cabbage0/cabbage3.png',
+        'cabbage0/cabbage4.png'
+    ];
+
     // Animate palms first
-    animatePlant(palm1, palmStates.map(s => s.left), 1000);
-    animatePlant(palm2, palmStates.map(s => s.right), 1500);
+    animatePlant(palm1, palmLeftFrames, 1000);
+    animatePlant(palm2, palmRightFrames, 1500);
     
     // Animate ferns after palms
     animatePlant(fern1, fernFrames, 2000);
     animatePlant(fern2, fernFrames, 2500);
+
+    // Animate cabbages last
+    animatePlant(cabbage1, cabbageFrames, 3000);
+    animatePlant(cabbage2, cabbageFrames, 3500);
 }
 
 // Add error handling to help debug deployment issues
