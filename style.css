@@ -261,6 +261,7 @@ body {
     text-align: left;
     text-align-last: left;
     padding-left: 10px;
+    padding-top: 10px; /* Remove top padding on mobile */
   }
 
   .section {
@@ -283,7 +284,10 @@ body {
 @media (max-width: 1000px) {
   .mobile-plant {
     display: block;
-    margin: 20px auto; /* Center the image and add vertical spacing */
-    max-width: 250px;  /* Adjust as needed */
+    margin: 10px auto; /* Center the image and add vertical spacing */
+    width: 75px;  /* Adjust as needed */
+    -ms-interpolation-mode: nearest-neighbor;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
   }
 }
