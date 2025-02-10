@@ -274,3 +274,16 @@ body {
 .burst-plant {
   opacity: 0;
 }
+
+/* New: Mobile extra plant image styling */
+.mobile-plant {
+  display: none;  /* Hide by default */
+}
+
+@media (max-width: 1000px) {
+  .mobile-plant {
+    display: block;
+    margin: 20px auto; /* Center the image and add vertical spacing */
+    max-width: 250px;  /* Adjust as needed */
+  }
+}

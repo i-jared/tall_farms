@@ -136,10 +136,37 @@ function animatePlants() {
     }, 3000);
 }
 
-// Add error handling to help debug deployment issues
+function animateMobilePlants() {
+    // Define the same frame arrays as in animatePlants()
+    const fernFrames = [
+        'fern0/fern1.png',
+        'fern0/fern2.png',
+        'fern0/fern3.png',
+        'fern0/fern4.png'
+    ];
+    const cabbageFrames = [
+        'cabbage0/cabbage1.png',
+        'cabbage0/cabbage2.png',
+        'cabbage0/cabbage3.png',
+        'cabbage0/cabbage4.png'
+    ];
+    
+    // Select all mobile plants placed in the HTML
+    const mobilePlants = document.querySelectorAll('.mobile-plant');
+    mobilePlants.forEach((plant, index) => {
+        const type = plant.getAttribute('data-animation');
+        let frames = (type === 'cabbage') ? cabbageFrames : fernFrames;
+        // Stagger animations with a delay based on index
+        const delay = 500 + (index * 200);
+        animatePlant(plant, frames, delay);
+    });
+}
+
+// Update window load to initialize both regular and mobile plant animations
 window.addEventListener('load', () => {
     try {
         animatePlants();
+        animateMobilePlants();  // New: animate mobile-only plants
     } catch (error) {
         console.error('Error initializing plant animations:', error);
     }
