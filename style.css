@@ -241,30 +241,31 @@ body {
 }
 
 /* Adjust for mobile */
-@media (max-width: 1000px) {  /* Updated breakpoint for when palms would overlap content */
+@media (max-width: 1000px) {  
   #palm1, #palm2, #fern1, #fern2, #fern3, #fern4, #fern5, 
   #cabbage1, #cabbage2, #cabbage3, #cabbage4, #cabbage5, 
   #tree1, #tree2, #eggplant1, #eggplant2, #eggplant3 {
-    display: none;  /* Hide palms when screen gets too narrow */
+    display: none;
   }
 
   #one {
-    font-size: 60px;  /* Smaller font on mobile */
-    letter-spacing: 10px;  /* Less spacing on mobile */
+    font-size: 60px;
+    letter-spacing: 10px;
     text-align: center;
     text-align-last: center;
   }
 
   .title {
-    font-size: 24px;  /* Smaller font on mobile */
-    letter-spacing: normal !important;  /* Override individual letter-spacing */
-    text-align: center;
-    text-align-last: center;
+    font-size: 24px;
+    letter-spacing: normal !important;
+    text-align: left;
+    text-align-last: left;
+    padding-left: 10px;
   }
 
   .section {
-    text-align: justify;
-    text-align-last: center;
+    text-align: left;
+    text-align-last: left;
     padding-left: 10px;
     padding-right: 10px;
   }
