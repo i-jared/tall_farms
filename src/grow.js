@@ -28,8 +28,14 @@ function animatePlants() {
     const palm2 = document.getElementById('palm2');
     const fern1 = document.getElementById('fern1');
     const fern2 = document.getElementById('fern2');
+    const fern3 = document.getElementById('fern3');
+    const fern4 = document.getElementById('fern4');
+    const fern5 = document.getElementById('fern5');
     const cabbage1 = document.getElementById('cabbage1');
     const cabbage2 = document.getElementById('cabbage2');
+    const cabbage3 = document.getElementById('cabbage3');
+    const cabbage4 = document.getElementById('cabbage4');
+    const cabbage5 = document.getElementById('cabbage5');
     const tree1 = document.getElementById('tree1');
     const tree2 = document.getElementById('tree2');
     
@@ -77,8 +83,14 @@ function animatePlants() {
     const burstPlants = shuffleArray([
         { element: fern1, frames: fernFrames },
         { element: fern2, frames: fernFrames },
+        { element: fern3, frames: fernFrames },
+        { element: fern4, frames: fernFrames },
+        { element: fern5, frames: fernFrames },
         { element: cabbage1, frames: cabbageFrames },
         { element: cabbage2, frames: cabbageFrames },
+        { element: cabbage3, frames: cabbageFrames },
+        { element: cabbage4, frames: cabbageFrames },
+        { element: cabbage5, frames: cabbageFrames },
         { element: tree1, frames: treeFrames },
         { element: tree2, frames: treeFrames }
     ]);

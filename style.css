@@ -106,7 +106,7 @@
   height: 50px;
 }
 
-#fern1, #fern2 {
+#fern1, #fern2, #fern3, #fern4, #fern5 {
   width: 150px;
   height: auto;
   image-rendering: pixelated;
@@ -127,7 +127,25 @@
   transform: translateY(-50%);
 }
 
-#cabbage1, #cabbage2 {
+#fern3 {
+  right: calc(50% - 750px);
+  top: 550px;
+  transform: translateY(-50%);
+}
+
+#fern4 {
+  left: calc(50% - 550px);
+  top: 100px;
+  transform: translateY(-50%);
+}
+
+#fern5 {
+  right: calc(50% - 650px);
+  top: 250px;
+  transform: translateY(-50%);
+}
+
+#cabbage1, #cabbage2, #cabbage3, #cabbage4, #cabbage5 {
   width: 150px;
   height: auto;
   image-rendering: pixelated;
@@ -145,6 +163,24 @@
 #cabbage2 {
   left: calc(50% - 400px);
   top: 700px;
+  transform: translateY(-50%);
+}
+
+#cabbage3 {
+  right: calc(50% - 550px);
+  top: 350px;
+  transform: translateY(-50%);
+}
+
+#cabbage4 {
+  left: calc(50% - 550px);
+  top: 500px;
+  transform: translateY(-50%);
+}
+
+#cabbage5 {
+  right: calc(50% - 450px);
+  top: 650px;
   transform: translateY(-50%);
 }
 
@@ -171,7 +207,9 @@
 
 /* Adjust for mobile */
 @media (max-width: 1000px) {  /* Updated breakpoint for when palms would overlap content */
-  #palm1, #palm2, #fern1, #fern2, #cabbage1, #cabbage2, #tree1, #tree2 {
+  #palm1, #palm2, #fern1, #fern2, #fern3, #fern4, #fern5, 
+  #cabbage1, #cabbage2, #cabbage3, #cabbage4, #cabbage5, 
+  #tree1, #tree2 {
     display: none;  /* Hide palms when screen gets too narrow */
   }
 
