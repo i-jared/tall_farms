@@ -106,9 +106,30 @@
   height: 50px;
 }
 
+#fern1, #fern2 {
+  width: 150px;
+  height: auto;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+  position: absolute;
+}
+
+#fern1 {
+  left: calc(50% - 400px);
+  top: 400px;
+  transform: translateY(-50%);
+}
+
+#fern2 {
+  right: calc(50% - 400px);
+  top: 800px;
+  transform: translateY(-50%);
+}
+
 /* Adjust for mobile */
 @media (max-width: 1000px) {  /* Updated breakpoint for when palms would overlap content */
-  #palm1, #palm2 {
+  #palm1, #palm2, #fern1, #fern2 {
     display: none;  /* Hide palms when screen gets too narrow */
   }
 

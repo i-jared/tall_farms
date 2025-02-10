@@ -1,25 +1,24 @@
-function animatePalm(element, states, isRight) {
-    const delay = isRight ? 500 : 0; // Right palm starts 500ms after left
-    
+function animatePlant(element, frames, delay) {
     setTimeout(() => {
-        let currentState = 0;
+        let currentFrame = 0;
         const interval = setInterval(() => {
-            if (currentState < states.length) {
-                element.src = states[currentState][isRight ? 'right' : 'left'];
-                currentState++;
+            if (currentFrame < frames.length) {
+                element.src = frames[currentFrame];
+                currentFrame++;
             } else {
                 clearInterval(interval);
             }
         }, 200);
-    }, 1000 + delay); // Base delay of 1000ms + stagger delay if right palm
+    }, delay);
 }
 
-function animatePalms() {
+function animatePlants() {
     const palm1 = document.getElementById('palm1');
     const palm2 = document.getElementById('palm2');
+    const fern1 = document.getElementById('fern1');
+    const fern2 = document.getElementById('fern2');
     
-    // Updated paths to be relative to domain root
-    const states = [
+    const palmStates = [
         {
             left: 'palm-left/palm-left1.png',
             right: 'palm-right/palm-right1.png'
@@ -38,16 +37,27 @@ function animatePalms() {
         }
     ];
 
-    // Animate each palm separately with stagger
-    animatePalm(palm1, states, false); // Left palm starts first
-    animatePalm(palm2, states, true);  // Right palm starts 500ms later
+    const fernFrames = [
+        'fern0/fern1.png',
+        'fern0/fern2.png',
+        'fern0/fern3.png',
+        'fern0/fern4.png'
+    ];
+
+    // Animate palms first
+    animatePlant(palm1, palmStates.map(s => s.left), 1000);
+    animatePlant(palm2, palmStates.map(s => s.right), 1500);
+    
+    // Animate ferns after palms
+    animatePlant(fern1, fernFrames, 2000);
+    animatePlant(fern2, fernFrames, 2500);
 }
 
 // Add error handling to help debug deployment issues
 window.addEventListener('load', () => {
     try {
-        animatePalms();
+        animatePlants();
     } catch (error) {
-        console.error('Error initializing palm animations:', error);
+        console.error('Error initializing plant animations:', error);
     }
 }); 
