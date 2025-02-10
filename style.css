@@ -1,3 +1,11 @@
+html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+}
+
 .tower {
   justify-content: center;
   width: 90%;  /* Changed from fixed 500px */
