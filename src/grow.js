@@ -1,5 +1,8 @@
 function animatePlant(element, frames, delay) {
     setTimeout(() => {
+        // Make the plant visible right before animation starts
+        element.style.opacity = '1';
+        
         let currentFrame = 0;
         const interval = setInterval(() => {
             if (currentFrame < frames.length) {
@@ -10,6 +13,14 @@ function animatePlant(element, frames, delay) {
             }
         }, 200);
     }, delay);
+}
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
 }
 
 function animatePlants() {
@@ -62,17 +73,33 @@ function animatePlants() {
     animatePlant(palm1, palmLeftFrames, 1000);
     animatePlant(palm2, palmRightFrames, 1500);
     
-    // Animate ferns after palms
-    animatePlant(fern1, fernFrames, 2000);
-    animatePlant(fern2, fernFrames, 2500);
+    // Create burst groups for remaining plants
+    const burstPlants = shuffleArray([
+        { element: fern1, frames: fernFrames },
+        { element: fern2, frames: fernFrames },
+        { element: cabbage1, frames: cabbageFrames },
+        { element: cabbage2, frames: cabbageFrames },
+        { element: tree1, frames: treeFrames },
+        { element: tree2, frames: treeFrames }
+    ]);
 
-    // Animate cabbages next
-    animatePlant(cabbage1, cabbageFrames, 3000);
-    animatePlant(cabbage2, cabbageFrames, 3500);
+    // Split into 4 groups
+    const groupSize = Math.ceil(burstPlants.length / 4);
+    const groups = [];
+    for (let i = 0; i < burstPlants.length; i += groupSize) {
+        groups.push(burstPlants.slice(i, i + groupSize));
+    }
 
-    // Animate trees last
-    animatePlant(tree1, treeFrames, 4000);
-    animatePlant(tree2, treeFrames, 4500);
+    // Start burst sequence after palms (3000ms after start)
+    setTimeout(() => {
+        // Animate each group with small delays between them
+        groups.forEach((group, index) => {
+            const groupDelay = index * 150; // 150ms between groups
+            group.forEach(plant => {
+                animatePlant(plant.element, plant.frames, groupDelay);
+            });
+        });
+    }, 3000);
 }
 
 // Add error handling to help debug deployment issues

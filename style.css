@@ -196,3 +196,7 @@
     padding-right: 10px;
   }
 }
+
+.burst-plant {
+  opacity: 0;
+}
